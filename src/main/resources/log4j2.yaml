@@ -1,0 +1,32 @@
+Configuration:
+  status: WARN
+  Appenders:
+    Console:
+      name: Console
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "UTC %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %c{1}.%M(%F:%L) - %msg%n"
+
+    RollingFile:
+      name: FileAppender
+      fileName: logs/shortner-link.log
+      filePattern: logs/shortner-link-%d{yyyy-MM-dd_HH-mm-ss-SSS}.log.gz
+      PatternLayout:
+        pattern: "UTC %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %c{1}.%M(%F:%L) - %msg%n"
+      Policies:
+        SizeBasedTriggeringPolicy:
+          size: 100MB
+      DefaultRolloverStrategy:
+        max: 50
+
+  Loggers:
+    Root:
+      level: debug
+      AppenderRef:
+        - ref: FileAppender
+
+    Logger:
+      - name: com.bortolettotech
+        level: info
+        AppenderRef:
+          - ref: Console
