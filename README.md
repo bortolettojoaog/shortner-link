@@ -2,7 +2,7 @@
 
 > A modern and efficient URL shortening service built with Spring Boot
 
-![Project Banner](./assets/banner.png)
+![Project Banner](./assets/banner.webp)
 
 ## 📋 Table of Contents
 
