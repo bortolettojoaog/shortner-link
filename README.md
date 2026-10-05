@@ -200,6 +200,7 @@ DELETE /?shortCode={shortCode}
 -   `200` - Success
 -   `400` - Bad request
 -   `404` - Link not found
+-   `429` - Monthly link limit reached (50 active links max; oldest links expire after 30 days)
 -   `500` - Internal server error
 
 ## 💡 Usage Examples

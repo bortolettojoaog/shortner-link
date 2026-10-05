@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shortnerlink</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <main class="card">
+        <header class="brand">
+            <div class="logo">🔗</div>
+            <h1>Shortner<span>link</span></h1>
+            <p class="tagline">Fast. Simple. Reliable.</p>
+        </header>
+
+        <form id="shorten-form" novalidate>
+            <label for="originalUrl">URL a ser encurtada</label>
+            <input
+                id="originalUrl"
+                name="originalUrl"
+                type="text"
+                placeholder="https://exemplo.com/meu-link-gigante"
+                autocomplete="off"
+                required
+            />
+
+            <div class="row">
+                <div class="field">
+                    <label for="username">Seu nome</label>
+                    <input
+                        id="username"
+                        name="username"
+                        type="text"
+                        placeholder="opcional"
+                        autocomplete="off"
+                    />
+                </div>
+
+                <div class="field">
+                    <label for="notificationType">Notificação</label>
+                    <select id="notificationType" name="notificationType">
+                        <option value="OTHER" selected>Nenhuma</option>
+                        <option value="EMAIL">E-mail</option>
+                        <option value="WHATSAPP">WhatsApp</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" id="submit-btn">
+                <span>Encurtar link</span>
+            </button>
+        </form>
+
+        <div id="result" class="result hidden">
+            <label>Seu link está pronto</label>
+            <div class="result-box">
+                <input id="short-url" type="text" readonly />
+                <button id="copy-btn" type="button" title="Copiar">Copiar</button>
+                <a id="open-link" href="#" target="_blank" rel="noopener" title="Abrir">↗</a>
+            </div>
+        </div>
+
+        <p id="message" class="message hidden"></p>
+
+        <footer>
+            Developed with ❤️ by <strong>BortolettoTech</strong>
+        </footer>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

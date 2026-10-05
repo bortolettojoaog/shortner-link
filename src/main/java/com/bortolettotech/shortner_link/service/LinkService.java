@@ -17,7 +17,13 @@ import java.util.Optional;
 @Slf4j
 public class LinkService {
 
+    private static final long MAX_ACTIVE_LINKS = 50;
+
     private final LinkRepositoryI repository;
+
+    public boolean isLimitReached() {
+        return repository.count() >= MAX_ACTIVE_LINKS;
+    }
 
     public Link createShortLink(LinkDTO dto) {
         String salt = dto.getUsername() + LocalDateTime.now().toString() + dto.getNotificationType();

@@ -53,6 +53,11 @@ public class LinkController {
             return ResponseEntity.ok(Map.of("shortCode", existing.get().getShortCode()));
         }
 
+        if (service.isLimitReached()) {
+            log.warn("Monthly link limit reached, rejecting new link creation.");
+            return ResponseEntity.status(429).body(Map.of("message", "Limite de 50 links ativos atingido. Aguarde a expiração de links antigos (30 dias) para criar novos."));
+        }
+
         Link link = service.createShortLink(dto);
         log.info("Short link created successfully: {}", link);
         return ResponseEntity.ok(Map.of("shortCode", link.getShortCode()));
